@@ -22,7 +22,7 @@ def getBasePower(base, exp):
 	[This would be better if there was a module for memoization]
 	"""
 	if (base, exp) not in cache.keys():
-		cache[(base,exp)] = int(math.pow(base, exp))
+		cache[(base,exp)] = base ** exp
 	return cache[(base,exp)]
 
 def getDecimalValue(w):
@@ -66,8 +66,10 @@ def isPrime(n):
     return True
 
 if __name__ == '__main__':
-    w = sys.argv[1]
+    w = sys.argv[1].strip()
     n = getDecimalValue(w)
+
+    print("Decimal representation of ", w, " = ", n)
     
     if isPrime(n):
         print (w, " is prime")
